@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Editeur</title>
+		<link href="../css/editeur.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/Bootstrap/css/bootstrap.css" >
+	</head>
+	<body onload="init();">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2">
+				<button name="aff_obj_projet" onClick="toggle_div(this, 'obj_projet')">Afficher objet du projet</button>
+				<button name="info" onClick="toggle_div(this, 'info_objet')">Afficher info objet</button>
+				<div style="width:300px; overflow:auto; border:solid 1px black;" id="mondiv"></div>
+				<div>
+					<div id ="obj_projet">
+						Liste des objets :
+						<table id="list_obj">
+							<tr>
+								<th>Id</th>
+								<th>Type</th>
+							</tr>
+						</table>
+					</div>
+					<br/><br/><br/>
+					<div id = "info_objet">
+						Informations de l'objet :
+						<table >
+							<tr>
+								<td> Id : </td>
+								<td id = "infoId"></td >
+							</tr>
+							<tr>
+								<td> Type : </td>
+								<td id ="infoType" ></td>
+							</tr>
+							<tr>
+								<td> Matière : </td>
+								<td  id = "infoMatiere"></td>
+							</tr>
+							<tr>
+								<td > Longueur : </td>
+								<td id = "infoL"></td>
+							</tr>
+							<tr>
+								<td> Epaisseur : </td>
+								<td id = "infol" onClick="aff_modifieur(id)"></td>
+							</tr>
+							<tr id = "supprimer">
+								<td id = "supp"> </td>
+								<td></td>
+							</tr>
+							<tr id = "modifieur" style = "display:none">
+								<td id = "td1"> </td>
+								<td id = "infoL"><input id = "newvalue" type = "number"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2">
+				<canvas id="2dquad" style = "background:url(../ressources/quadrillage.jpg)" width="800" height="600">
+					Votre navigateur ne semble pas supporter l'élément HTML5 <code>&lt;canvas&gt;</code>.
+				</canvas>
+				<canvas id="2dview" width="800" height="600">
+					Votre navigateur ne semble pas supporter l'élément HTML5 <code>&lt;canvas&gt;</code>.
+				</canvas>
+				<canvas id="2dcalq" width="800" height="600">
+					Votre navigateur ne semble pas supporter l'élément HTML5 <code>&lt;canvas&gt;</code>.
+				</canvas>
+			</div>
+		</div>
+				<div class="row" ng-app="gemStore">
+					<div class="panel panel-default col-lg-8 col-lg-offset-2" ng-controller="EditorController as editor">
+            </br>
+            </br>
+            </br>
+					  <nav class="navbar navbar-default">
+						<input type="text" class="form-control" ng-model="editor.search"/>
+						<button ng-click="checkOrder('name')">Trier par nom</button>
+						<button ng-click="checkOrder('price')">Trier par prix</button>
+						</nav>
+						<br/>
+						<br/>
+						Filtre:
+						<br/>
+						<br/>
+						Marque:
+						<br/>
+						<br/>
+						&emsp;&emsp;&emsp;
+						<span ng-repeat="x in editor.checkList | filter:{type:'Marque'}">
+						<input type="checkbox" ng-model="x.checked">{{ x.name }}&emsp;
+						</span>
+						<br/>
+						<br/>
+						Marque:
+						<br/>
+						<br/>
+						&emsp;&emsp;&emsp;
+						<span ng-repeat="x in editor.checkList | filter:{type:'Type'}">
+						<input type="checkbox" ng-model="x.checked">{{ x.name }}&emsp;
+						</span>
+						<br/>
+						<br/>
+						<br/>
+						Promo: <input type="checkbox" ng-model="editor.promoCheck">Afficher les promotions!</input>
+						<br/>
+						<br/>
+						<div class="list-group">
+							<a href="#" class="list-group-item list-group-item-action row" ng-repeat="m in editor.objs | filter:{name:editor.search} | orderBy: editor.orderType" style="list-style-type:none" ng-if="checkedValue(m) == true">
+									<img class="media-object col-lg-1 col-lg-offset-1 thumbnail" ng-src="{{ m.thumbnail }}" style="width:60px;height:60px;">
+									<div class="col-lg-5 col-lg-offset-1">
+									  <h5 class="list-group-item-heading">{{ m.name }}</h5>
+									  <p class="list-group-item-text">Prix: {{ m.price | currency:'€' }} Marque: {{ m.brand }} Type: {{ m.type }}
+  									  </br>
+										  </br>
+										  {{ m.description }}
+										  </br>
+										  </br>
+										  {{ m.dimensions }}
+									  </p>
+									</div>
+							</a>
+						</div>
+					</div>
+		</div>
+		<script src="/Angular/angular/angular.js"></script>
+		<script type="text/javascript" src="/Site/app.js"></script>
+		<script src="../js/editeur.js"></script>
+	</body>
+</html>

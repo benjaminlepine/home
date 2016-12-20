@@ -1,0 +1,41 @@
+[
+   {
+      "seller":"castorama",
+      "thumbnail":"http://www.castorama.fr/images/products/h/h_903889.jpg",
+      "name":"Parpaing creux béton",
+      "description":"Pour la pour réalisation de mur porteur (façade et intérieur), mur de clôture, garage... Montage traditionnel au mortier ciment.",
+      "type":"window",
+      "price":1.20,
+      "promo":false,
+      "brand":"castorama",
+      "dimensions":"15 x 20 x 50 cm",
+      "id":"583fc607ebca3a76834ad9a3",
+      "date":"1-12-2016 7h41"
+   },
+   {
+      "seller":"castorama",
+      "thumbnail":"http://www.castorama.fr/images/products/i/i_654613.jpg",
+      "name":"Fenêtre PVC blanche 2 vantaux",
+      "description":"Excellente isolation thermique pour la fenêtre 2 vantaux Grosfillex. En PVC blanc et traité anti-Uv, elle est facile d'entretien et résiste au temps.",
+      "type":"window",
+      "price":121.00,
+      "promo":false,
+      "brand":"Grosfillex",
+      "dimensions":"L.100 x h.75 cm. Dormant : 65 mm.",
+      "id":"583fc756ebca3a76834ad9a4",
+      "date":"1-12-2016 7h46"
+   },
+   {
+      "seller":"castorama",
+      "thumbnail":"http://www.castorama.fr/images/products/i/i_675948_01.jpg",
+      "name":"Mosaïque verre mix gris",
+      "description":"Mosaïque verre mix gris 29,8 cm carreaux 2,3 x 2,3 cm",
+      "type":"floor tile",
+      "price":9.90,
+      "promo":true,
+      "brand":"castorama",
+      "dimensions":"29,8 x 29,8 cm",
+      "id":"583fc86bebca3a76834ad9a5",
+      "date":"1-12-2016 7h51"
+   }
+]
